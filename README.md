@@ -13,3 +13,6 @@ args:
 - --kubelet-insecure-tls
 - --kubelet-preferred-address-types=InternalIP
 
+To autoscale the deploymemt run below command:
+
+]# kubectl autoscale deployment python-flask --cpu-percent=60 --min=3 --max=10
