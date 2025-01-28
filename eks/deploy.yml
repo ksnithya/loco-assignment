@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-flask
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-flask
+  template:
+    metadata:
+      labels:
+        app: python-flask
+    spec:
+      containers:
+        - name: python-app
+          image: nithyaks/python-multistage-app
+          resources:
+            requests:
+              cpu: 100m
+            limits:
+              cpu: 200m
+          ports:
+            - containerPort: 80
